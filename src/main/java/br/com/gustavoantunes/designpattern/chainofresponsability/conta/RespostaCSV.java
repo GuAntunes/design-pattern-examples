@@ -3,6 +3,11 @@ package br.com.gustavoantunes.designpattern.chainofresponsability.conta;
 public class RespostaCSV implements Resposta{
 	private Resposta proxima;
 
+	public RespostaCSV(Resposta proxima) {
+		super();
+		this.proxima = proxima;
+	}
+
 	@Override
 	public void responde(Requisicao req, Conta conta) {
 		if (req.getFormato().equals(Formato.CSV)) {

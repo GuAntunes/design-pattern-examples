@@ -3,14 +3,10 @@ package br.com.gustavoantunes.designpattern.chainofresponsability.conta;
 public class ImprimirResposta {
 
 	public void imprime(Requisicao req, Conta conta) {
-		RespostaXML xml = new RespostaXML();
-		RespostaCSV csv = new RespostaCSV();
-		RespostaPorcento porcento = new RespostaPorcento();
 		SemResposta semResposta = new SemResposta();
-		
-		xml.setProxima(csv);
-		csv.setProxima(porcento);
-		porcento.setProxima(semResposta);
+		RespostaPorcento porcento = new RespostaPorcento(semResposta);
+		RespostaCSV csv = new RespostaCSV(porcento);
+		RespostaXML xml = new RespostaXML(csv);
 		
 		xml.responde(req, conta);
 	}

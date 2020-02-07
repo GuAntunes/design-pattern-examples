@@ -4,6 +4,11 @@ public class RespostaPorcento implements Resposta {
 
 	private Resposta proxima;
 
+	public RespostaPorcento(Resposta proxima) {
+		super();
+		this.proxima = proxima;
+	}
+
 	@Override
 	public void responde(Requisicao req, Conta conta) {
 		if (req.getFormato().equals(Formato.PORCENTO)) {
@@ -12,7 +17,7 @@ public class RespostaPorcento implements Resposta {
 			sb.append("%");
 			sb.append(conta.getSaldo());
 			System.out.println(sb);
-		}else {
+		} else {
 			proxima.responde(req, conta);
 		}
 
