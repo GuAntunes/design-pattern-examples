@@ -1,10 +1,13 @@
 package br.com.gustavoantunes.designpattern.chainofresponsability.conta;
 
+import java.util.Calendar;
+
 public class Conta {
 	private String titular;
 	private double saldo;
 	private String agencia;
 	private String numeroDaConta;
+	private Calendar dataAbertura;
 
 	public String getTitular() {
 		return titular;
@@ -36,6 +39,14 @@ public class Conta {
 
 	public void setNumeroDaConta(String numeroDaConta) {
 		this.numeroDaConta = numeroDaConta;
+	}
+
+	public Calendar getDataAbertura() {
+		return dataAbertura;
+	}
+
+	public void setDataAbertura(Calendar dataAbertura) {
+		this.dataAbertura = dataAbertura;
 	}
 
 }
